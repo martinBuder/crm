@@ -1,0 +1,41 @@
+.mat-drawer-container {
+	height: 100svh;
+	height: 100vh;
+}
+
+.sidenav {
+	width: 300px;
+}
+
+.logoContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 16px 0;
+	border-bottom: 2px solid bisque;
+
+	.logo{
+		width: 50px;
+		text-align: center;
+	}
+}
+
+ul {
+	li {
+		padding: 20px 40px;
+		list-style: none;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		cursor: pointer;
+
+
+		&:hover {
+			background-color: rgba(255, 228, 196, 0.3);
+		}	
+	}
+}
+
+.routerContainer{
+	padding: 40px;
+}
