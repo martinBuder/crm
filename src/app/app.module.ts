@@ -15,10 +15,19 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatProgressBarModule} from '@angular/material/progress-bar'
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
 import { AddUserFormComponent } from './add-user-form/add-user-form.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -31,7 +40,7 @@ import { AddUserFormComponent } from './add-user-form/add-user-form.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    // material design
+
     MatToolbarModule, 
     MatSidenavModule,
     MatButtonModule,
@@ -44,6 +53,14 @@ import { AddUserFormComponent } from './add-user-form/add-user-form.component';
     MatDialogModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatProgressBarModule,
+    MatCardModule,
+    MatExpansionModule,
+
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]

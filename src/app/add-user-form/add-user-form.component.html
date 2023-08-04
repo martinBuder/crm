@@ -1,11 +1,11 @@
 <h1 mat-dialog-title>Add new User</h1>
 <div mat-dialog-content class="inputWrapper">
   <p>Fill in.</p>
-		<mat-form-field *ngFor="let key of getObjectKeys(newUser)">
+		<mat-form-field *ngFor="let key of getObjectKeys(user)">
 			<mat-label>{{ key }}</mat-label>
 
 			<ng-container *ngIf="key == 'birthsday'">
-				<input matInput [matDatepicker]="picker" [(ngModel)]="newUser[key]" >
+				<input [disabled]="loading" matInput [matDatepicker]="picker" [(ngModel)]="user[key]" >
 				<mat-hint>MM/DD/YYYY</mat-hint>
 		
 				<mat-datepicker #picker></mat-datepicker>
@@ -13,12 +13,13 @@
 			</ng-container>
 
 			<ng-container *ngIf="key !== 'birthsday'">
-				<input matInput [(ngModel)]="newUser[key]">
+				<input [disabled]="loading" matInput [(ngModel)]="user[key]">
 			</ng-container>
 		</mat-form-field>
 	
 </div>
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button (click)="logData()" cdkFocusInitial >save</button>
+  <button mat-button [disabled]="loading" (click)="onNoClick()">No Thanks</button>
+  <button mat-button [disabled]="loading" (click)="saveUser()" cdkFocusInitials>save</button>
 </div>

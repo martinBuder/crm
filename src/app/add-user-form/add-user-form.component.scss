@@ -11,6 +11,10 @@
 		width: calc(50% - 5px);
 	}
 
+	mat-label{
+		text-transform: capitalize;
+	}
+
 	::ng-deep .mat-datepicker-toggle {
   position: absolute;
   top: calc(50% - 12px); /* Center the icon vertically */

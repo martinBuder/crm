@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mb-crm-1985": {
+      "hosting": {
+        "CRM": [
+          "mb-crm-1985"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mb-crm-1985"
+  }
+}

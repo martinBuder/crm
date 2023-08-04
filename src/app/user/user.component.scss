@@ -3,3 +3,19 @@
 	bottom: 40px;
 	right: 40px;
 }
+
+.userHeader {
+	font-size: 1.2rem;
+}
+
+mat-expansion-panel {
+	position: relative;
+}
+
+.btnContainer {
+	position: absolute;
+	bottom: 24px;
+	right: 24px;
+	display: flex;
+	gap: 12px;
+}
