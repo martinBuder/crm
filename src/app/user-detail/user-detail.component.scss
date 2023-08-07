@@ -1,0 +1,54 @@
+.cardHeader {
+	min-height: 250px;
+	background-color: rgb(195, 171, 142);
+	position: relative;
+}
+
+.profilImg {
+	width: 100px;
+	height: 100px;
+	background-color: rgb(247, 217, 180);
+	padding: 10px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 2px solid #fff;
+	overflow: hidden;
+	position: absolute;
+	left: 50px;
+	bottom: -50px; 
+}
+
+.userHeader {
+	margin-top: 70px;
+	padding-left: 16px;
+	font-size: 1.2rem;
+	position: relative;
+
+	h2 {
+		margin-bottom: 0;
+		font-size: 2rem;
+	}
+}
+
+.cardContentHeader {
+	font-size: 1.1rem;
+	padding: 40px 16px; 
+	text-decoration: double underline;
+}
+
+.deleteBtn {
+	position: absolute;
+	right: 16px;
+	top: 0;
+}
+
+.cardWrapper {
+	position: relative;
+}
+
+.cardBtn {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+

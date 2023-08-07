@@ -28,13 +28,20 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { EditAdressComponent } from './edit-adress/edit-adress.component';
+import { EditPersonalComponent } from './edit-personal/edit-personal.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     UserComponent,
-    AddUserFormComponent
+    AddUserFormComponent,
+    UserDetailComponent,
+    EditAdressComponent,
+    EditPersonalComponent
   ],
   imports: [
     BrowserModule,

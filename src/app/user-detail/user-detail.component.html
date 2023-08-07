@@ -1,0 +1,43 @@
+<mat-card>
+	<mat-card-content class="cardHeader">
+		<div class="profilImg">
+			<img src="assets/img/person.svg" alt="">
+		</div>
+	</mat-card-content>
+</mat-card>
+<div class="userContent">
+	<div class="userHeader">
+		<h2>{{ this.user.firstname }} {{ this.user.name }}</h2>
+		<p>{{ this.user.email }}</p>
+		<button mat-mini-fab color="primary" class="deleteBtn" (click)="deleteUser(this.user.id)">
+			<mat-icon>delete</mat-icon>
+		</button>
+	</div>
+</div>
+<mat-card class="mt-16 cardWrapper">
+	<mat-card-header class="cardContentHeader">
+		Contact
+	</mat-card-header>
+	<mat-card-content>
+		<p>Street:	{{ this.user.street }} {{ this.user.housenumber }}</p>
+		<p>City:	{{ this.user.postcode }} {{ this.user.city }}</p>
+		<p>Phone:	{{ this.user.phone }}</p>
+	</mat-card-content>
+	<button mat-icon-button class="cardBtn"(click)="openEditAdress()">
+		<mat-icon >more_vert</mat-icon>
+	</button>
+</mat-card>
+
+<mat-card class="mt-16">
+	<mat-card-header class="cardContentHeader">
+		Personal
+	</mat-card-header>
+	<mat-card-content>
+		<p>Birthsday:	{{ this.user.birthsday }} </p>
+	</mat-card-content>
+	<button mat-icon-button class="cardBtn" (click)="openEditPersonal()">
+		<mat-icon >more_vert</mat-icon>
+	</button>
+</mat-card>
+
+	

@@ -10,8 +10,7 @@
 			</mat-expansion-panel-header>
 			<p>This are all User we have saved.</p>
 	</mat-expansion-panel>
-	<mat-expansion-panel *ngFor="let userInfo of user$ | async" (opened)="panelOpenState = true"
-																						(closed)="panelOpenState = false">
+	<mat-expansion-panel *ngFor="let userInfo of user$ | async" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
 			<mat-expansion-panel-header>
 					<mat-panel-title>
 							{{ userInfo.name }}, {{ userInfo.firstname }}
@@ -25,13 +24,10 @@
 			<p>E-Mail: {{ userInfo.email}}</p>
 			<p>Phone: {{ userInfo.phone}}</p>
 			<p>Birthsday: {{ userInfo.birthsday}}</p>
-			<div class="btnContainer">
-				<button mat-mini-fab color="primary" (click)="editUser(userInfo)">
-					<mat-icon>edit</mat-icon>
-			</button>
-			<button mat-mini-fab color="primary" (click)="deleteUser(userInfo.id)">
-				<mat-icon>delete</mat-icon>
-			</button>
+			<div class="fullscreenBtn">
+				<button mat-mini-fab color="primary" routerLink="/user/{{ userInfo.id }}">
+					<mat-icon>fullscreen</mat-icon>
+				</button>
 			</div>
 	</mat-expansion-panel>
 </mat-accordion>

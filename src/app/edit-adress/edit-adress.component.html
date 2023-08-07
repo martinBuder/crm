@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Edit Contact</h1>
+<div mat-dialog-content class="inputWrapper">
+		<mat-form-field *ngFor="let key of getObjectKeys(this.user)">
+			<mat-label>{{ key }}</mat-label>
+
+			<!-- <ng-container *ngIf="key == 'street' || key == 'housenumber' || key == 'postcode' || key == 'city' || key == 'email' || key == 'phone'">
+				<input [disabled]="loading" matInput [(ngModel)]="user[key]">
+			</ng-container> -->
+			<input *ngIf="key == 'street' || key == 'housenumber' || key == 'postcode' || key == 'city' || key == 'email' || key == 'phone'"
+			[disabled]="loading" matInput [(ngModel)]="this.user[key]">
+
+
+	
+
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+
+</mat-form-field>
+<div mat-dialog-actions>
+	<button mat-button [disabled]="loading" (click)="onNoClick()">No Thanks</button>
+	<button mat-button [disabled]="loading" (click)="saveEditUser()" cdkFocusInitials>save</button>
+</div>
+</div>

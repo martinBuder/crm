@@ -1,0 +1,17 @@
+<mat-form-field >
+	<mat-label>Birthsday</mat-label>
+
+	<ng-container>
+		<input [disabled]="loading" matInput [matDatepicker]="picker" >
+		<mat-hint>MM/DD/YYYY</mat-hint>
+
+		<mat-datepicker #picker></mat-datepicker>
+		<mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+	</ng-container>
+</mat-form-field>
+
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<div mat-dialog-actions>
+  <button mat-button [disabled]="loading" (click)="onNoClick()">No Thanks</button>
+  <button mat-button [disabled]="loading" (click)="saveEditUser()" cdkFocusInitials>save</button>
+</div>

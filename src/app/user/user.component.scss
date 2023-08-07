@@ -12,10 +12,13 @@ mat-expansion-panel {
 	position: relative;
 }
 
-.btnContainer {
+.fullscreenBtn {
 	position: absolute;
 	bottom: 24px;
-	right: 24px;
+	right: 16px;
+}
+
+.btnContainer {
 	display: flex;
 	gap: 12px;
 }

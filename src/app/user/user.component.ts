@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddUserFormComponent } from '../add-user-form/add-user-form.component';
 import { User } from 'src/models/user.class';
@@ -11,7 +11,7 @@ import { DocumentData, DocumentReference, Firestore, collection, collectionData,
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent {
-  user : string = '';
+  @Input() user : string = '';
   panelOpenState: boolean = false;
   user$ !: Observable<any>;
   usersCollection = collection(this.firestore, 'user$');
@@ -20,6 +20,9 @@ export class UserComponent {
     this.getUsers();
   }
 
+  /**
+   * open the dialog window
+   */
   openDialog(): void {
     const dialogRef = this.dialog.open(AddUserFormComponent, {
       data: {name: this.user},
@@ -30,23 +33,14 @@ export class UserComponent {
     });
   }
 
+  /**
+   * get users from firebase
+   */
   getUsers() {
     this.user$ = collectionData(this.usersCollection, {idField : 'id'});
-    
   }
 
-  editUser(user:any){
-    // const userDoc = doc(this.usersCollection, user.id)
-    // updateDoc(userDoc, user)
-    console.log(user);
-    
-  }
-
-  deleteUser(id:string) {
-    const userDoc = doc(this.usersCollection, id)
-    deleteDoc(userDoc);
-
-  }
+ 
 
 }
 
