@@ -20,7 +20,7 @@ export class UserDetailComponent implements OnInit{
 
   constructor(private route: ActivatedRoute, 
     public firestore: Firestore,
-    public dialog: MatDialog,) { }
+    public dialog: MatDialog,) {}
 
   ngOnInit():void {
     this.route.paramMap.subscribe ( paramMap => {
@@ -33,32 +33,33 @@ export class UserDetailComponent implements OnInit{
     const userDoc = doc(this.usersCollection, this.userId)
     const userData = await getDoc(userDoc);
     this.user = userData.data()
-    console.log(this.user);
-    
   }
 
+  /**
+   * open edit adress and after closed get new datas
+   */
   openEditAdress(): void {
     const dialogRef = this.dialog.open(EditAdressComponent, {
       data: {name: this.user},
     });
-    dialogRef.componentInstance.user = this.user;
+    dialogRef.componentInstance.user = new User(this.user);
+    dialogRef.componentInstance.userId = this.userId;
     
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.user = result;
-    });
+    dialogRef.afterClosed().subscribe(async () => {
+      await this.getUser();
+    });  
   }
 
   openEditPersonal(): void {
     const dialogRef = this.dialog.open(EditPersonalComponent, {
       data: {name: this.user},
     });
-  
-    dialogRef.componentInstance.user = this.user;
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.user = result;
-    });
+    dialogRef.componentInstance.user = new User(this.user);
+    dialogRef.componentInstance.userId = this.userId;
+    
+    dialogRef.afterClosed().subscribe(async () => {
+      await this.getUser();
+    });  
   }
   
    /**
@@ -78,7 +79,16 @@ export class UserDetailComponent implements OnInit{
    * @param id 
    */
   deleteUser(id:string) {
-    const userDoc = doc(this.usersCollection, id)
+    const userDoc = doc(this.usersCollection, this.userId)
     deleteDoc(userDoc);
   }
+
+  getBirthsday(timestamp: any):string {
+    const seconds = timestamp?.seconds;
+    const nanoseconds = timestamp?.nanoseconds;
+    const milliseconds = seconds * 1000 + nanoseconds / 1000000; // Umrechnung in Millisekunden
+    const date = new Date(milliseconds);
+      return (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
+  }
+
 }

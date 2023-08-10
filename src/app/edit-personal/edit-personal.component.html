@@ -2,11 +2,11 @@
 	<mat-label>Birthsday</mat-label>
 
 	<ng-container>
-		<input [disabled]="loading" matInput [matDatepicker]="picker" >
+		<input [disabled]="loading" matInput [matDatepicker]="picker" [(ngModel)]="this.user.birthsday">
 		<mat-hint>MM/DD/YYYY</mat-hint>
 
-		<mat-datepicker #picker></mat-datepicker>
-		<mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+		<mat-datepicker #picker ></mat-datepicker>
+		<mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
 	</ng-container>
 </mat-form-field>
 

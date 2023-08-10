@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddUserFormComponent } from '../add-user-form/add-user-form.component';
 import { User } from 'src/models/user.class';
 import { Observable } from 'rxjs';
-import { DocumentData, DocumentReference, Firestore, collection, collectionData, deleteDoc, doc, updateDoc } from '@angular/fire/firestore';
+import { DocumentData, DocumentReference, Firestore, Timestamp, collection, collectionData, deleteDoc, doc, updateDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-user',
@@ -15,9 +15,11 @@ export class UserComponent {
   panelOpenState: boolean = false;
   user$ !: Observable<any>;
   usersCollection = collection(this.firestore, 'user$');
+  birthsday!: any;
 
   constructor(public dialog: MatDialog, public firestore: Firestore) {
     this.getUsers();
+  
   }
 
   /**
@@ -40,8 +42,17 @@ export class UserComponent {
     this.user$ = collectionData(this.usersCollection, {idField : 'id'});
   }
 
+ getBirthsday(timestamp: any):string {
+  const seconds = timestamp.seconds;
+  const nanoseconds = timestamp.nanoseconds;
+
+  const milliseconds = seconds * 1000 + nanoseconds / 1000000; // Umrechnung in Millisekunden
+
+  const date = new Date(milliseconds);
+    return (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
+  }
+  }
  
 
-}
 
 

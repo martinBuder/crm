@@ -23,7 +23,7 @@
 			<p>Postcode: {{ userInfo.postcode}}, City: {{ userInfo.city}}</p>
 			<p>E-Mail: {{ userInfo.email}}</p>
 			<p>Phone: {{ userInfo.phone}}</p>
-			<p>Birthsday: {{ userInfo.birthsday}}</p>
+			<p>Birthsday: {{ getBirthsday(userInfo.birthsday) }}</p>
 			<div class="fullscreenBtn">
 				<button mat-mini-fab color="primary" routerLink="/user/{{ userInfo.id }}">
 					<mat-icon>fullscreen</mat-icon>

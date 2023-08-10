@@ -26,7 +26,7 @@ export class AddUserFormComponent {
 
   async saveUser(){
     this.loading = true;
-    this.user.birthsday =  (this.user.birthsday.getMonth() + 1) + "/" + this.user.birthsday.getDate() + "/" + this.user.birthsday.getFullYear();
+   
 
    await addDoc(this.usersCollection, this.user.toJSON()); 
 

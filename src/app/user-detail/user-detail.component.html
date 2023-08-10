@@ -33,7 +33,7 @@
 		Personal
 	</mat-card-header>
 	<mat-card-content>
-		<p>Birthsday:	{{ this.user.birthsday }} </p>
+		<p>Birthsday: {{ getBirthsday(this.user.birthsday) }} </p>
 	</mat-card-content>
 	<button mat-icon-button class="cardBtn" (click)="openEditPersonal()">
 		<mat-icon >more_vert</mat-icon>
